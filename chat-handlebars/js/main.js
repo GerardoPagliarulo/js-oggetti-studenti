@@ -1,22 +1,21 @@
 $(document).ready(function () {
     // References
     var newMessage = $('input');
-    var buttonMessage = $('button');
     var displayChat = $('.chat');
-    var time = exactTime();
+    
     
     var source = $('#message-template').html();
 
     var template = Handlebars.compile(source);
 
-    buttonMessage.click(function () {
+    $('body').on('click', 'button' , function () {
         var textMessage = newMessage.val().trim();
         //console.log(textMessage);
 
         if (textMessage !== '') {
             var data = {
                 text: textMessage,
-                time: time,
+                time: exactTime(),
                 user: 'sent'
             };
 
@@ -50,7 +49,7 @@ $(document).ready(function () {
     function reply() {
         var data = {
             text: 'Ok.',
-            time: time,
+            time: exactTime(),
             user: 'received'
         };
 
