@@ -25,8 +25,6 @@ $(document).ready(function () {
             displayChat.append(messageNow);
 
             setTimeout (reply, 1000);
-
-            scrollChat();
         }
     });
 
