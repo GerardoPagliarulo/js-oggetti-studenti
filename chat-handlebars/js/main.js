@@ -25,7 +25,7 @@ $(document).ready(function () {
     for (var i = 0; i < initialMessage.length; i++) {
         var item = initialMessage[i];
 
-        var defaultMessage = template(initialMessage[i]);
+        var defaultMessage = template(item);
 
         displayChat.append(defaultMessage);
     }
