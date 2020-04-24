@@ -8,6 +8,29 @@ $(document).ready(function () {
 
     var template = Handlebars.compile(source);
 
+    // Messaggi presenti al caricamento della pagina
+    var initialMessage = [
+        {
+            text: 'Ciao!',
+            time: exactTime(),
+            user: 'sent'
+        },
+        {
+            text: 'Ehi! Ciao!',
+            time: exactTime(),
+            user: 'received'
+        }
+    ];
+
+    for (var i = 0; i < initialMessage.length; i++) {
+        var item = initialMessage[i];
+
+        var defaultMessage = template(initialMessage[i]);
+
+        displayChat.append(defaultMessage);
+    }
+
+    // Invio messaggi con bottone
     $('body').on('click', 'button' , function () {
         var textMessage = newMessage.val().trim();
         //console.log(textMessage);
@@ -23,6 +46,7 @@ $(document).ready(function () {
 
             displayChat.append(messageNow);
 
+            // Messaggio di risposta automatico dopo in secondo
             setTimeout (reply, 1000);
         }
     });
